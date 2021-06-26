@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "MyGrpc";
+
+package MyGrpcPackage;
+
+message SumRequest {
+	int32 first = 1;
+	int32 second = 2;
+}
+
+message SumResponse {
+	int32 Result = 1;
+}
+
+service SumService {
+	rpc CalculateSum (SumRequest) returns (SumResponse);
+	rpc CalculateManyTimeSum (SumRequest) returns (stream SumResponse);
+
+}
